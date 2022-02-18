@@ -1,11 +1,10 @@
 name: Label PRs
 
 on:
-  - workflow_call
-  - pull_request:
-      types: [opened]
-      branches-ignore:
-        - "main"
+  workflow_call:
+    secrets:
+      token:
+        required: true
 
 jobs:
   build:
@@ -14,4 +13,4 @@ jobs:
     steps:
       - uses: srvaroa/labeler@master
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.token }}"
