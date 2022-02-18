@@ -1,0 +1,32 @@
+name-template: "$RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
+categories:
+  - title: "🚀 Features"
+    labels:
+      - "enhancement"
+  - title: "🐛 Fixes"
+    labels:
+      - "bug"
+  - title: "🔥 Hotfix"
+    label: "wontfix"
+change-template: "- $TITLE #$NUMBER @$AUTHOR "
+version-resolver:
+  major:
+    labels:
+      - "release/major"
+  minor:
+    labels:
+      - "release/minor"
+  patch:
+    labels:
+      - "release/patch"
+  default: patch
+exclude-labels:
+  - "release/skip-changelog"
+template: |
+  $CHANGES
+
+  ## Uncategorized
+
+footer: |
+  **Full Changelog**: [$PREVIOUS_TAG...$RESOLVED_VERSION](https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION)
