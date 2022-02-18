@@ -1,0 +1,11 @@
+name: Reuseable Label PRs
+
+on:
+  - workflow_call
+
+jobs:
+  call-workflow:
+    name: Call local pr labeler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/pr-labeler
